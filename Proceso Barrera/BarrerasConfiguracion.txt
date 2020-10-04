@@ -1,0 +1,34 @@
+# Configuracion proceso barrera
+# El archivo de configracion debe estar localizado en el DIRECTORIO por defecto del user
+# c:\user\user1    \home\user1
+#
+# NO CAMBIAR EL ORDEN DE LAS LINEAS
+#
+# 1° IP del DNS Server
+# 2° N° de BARRERA 
+# 3° Puerto escucha del proceso barrera
+# 4° Nombre del ServidorObdistribuido
+# 5° Puerto escucha del ServidorObdistribuido RMI
+# 6° Manipulador
+# 7° Puerto Manipulador (trafico)
+# 8° Puerto Manipulador (keepalive escucha) Manipulador N° 1=3002;2=3003;3=300044=3005;
+#
+#
+# Proceso Barrera               #
+192.168.0.11                    # IP del DNS Server
+1                               # Numero de Proceso Barrera (1 al 4)
+3000        		            # Puerto escucha Proceso Barrera, trafico desde Manipulador
+ServidorObjdistribuidos	        # IP del servidor OBJ distruibuido 
+1900					        # puerto escucha de servidor OBJ distruibuido 
+Manipulador   		            # Nombre de manipulador que trabaja con este proceso barrera
+3001                            # Puerto en el cual esucha el resultado el manipulador
+3004                            # Puerto del manipulador en el cual esucha los KeepAlive
+3002                            # Puerto servicio muticast envio de pedido de ayuda cuando se pierde conexion con Sever RMI
+3003                            # Puerto servicio muticast recepcion de respuesta al pedido de ayuda a otras barreras
+5051                            # Puerto Servicio KeepAlive envio al ServerObjDist esucha a Barrera N° 1 en 5051, 2 en 5052, 3 en 5053 y 4 en 5054
+5055                            # Puerto Servicio keepalive recepcion de la respuesta desde el ServerObjDist 
+videomulticast			        # IP del servidor de video multicast
+degugger_keep_alive_ON          # degugger_keep_alive_ON / degugger_keep_alive_OFF genera archivo degugger_keep_alive.out con informacion de de debugger
+degugger_procesoBarrera_ON      # degugger_procesoBarrera_ON / degugger_procesoBarrera_OFF genera archivo degugger_procesoBarreraON.out con informacion de de debugger
+1000							# Timer (ms) TimerKeepAlive, tiempo que se espera un respuesta al keepAlive desde el Server RMI
+300								# Timer (ms) TimerEnvioKeepAliveServerRMI, tiempo que se espera un respuesta al keepAlive desde el Server RMI
