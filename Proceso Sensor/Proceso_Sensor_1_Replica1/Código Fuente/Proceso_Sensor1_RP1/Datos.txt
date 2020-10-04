@@ -1,0 +1,2 @@
+123 01 EST
+Error_Com._con_servidor_rmi
