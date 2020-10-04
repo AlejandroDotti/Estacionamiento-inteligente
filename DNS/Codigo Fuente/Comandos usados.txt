@@ -1,0 +1,30 @@
+comandos usados
+
+rndc-confgen.exe -a                          // genera la llave
+named-checkconf.exe                          //verifica que el archivo named, no avanzar hasta solucionar todos los problemas
+named-checkzone.exe unm.ar c:\bind\dns\etc\master\db\db.unm.ar   // verificamos que ls DB este ok
+start named.exe -f                           // arrancar el servidor DNS
+netstat -an | find "53"                      // verifico que esten usodos el IP y los port 53 953 UDP y TCP (953 solo TCP)
+c:\bind\dns\bin>netstat -an | find "53"
+  TCP    10.0.2.15:53           0.0.0.0:0              LISTENING
+  TCP    10.0.2.15:953          0.0.0.0:0              LISTENING
+  TCP    127.0.0.1:53           0.0.0.0:0              LISTENING
+  UDP    10.0.2.15:53           *:*
+  UDP    127.0.0.1:53           *:*
+  
+cambiar configuracion de la NIC para que se use el DNS propio, en DNS poner el IP de la maquina
+
+nslookup www.google.com                      // probamos que se pueda acceder a la forwarding zone
+
+C:\bind\dns\bin>                             // probamos un FQDN de nuestro dominio privado
+nslookup barrera1.unm.ar
+Server:         10.0.2.15
+Address:        10.0.2.15#53
+
+Name:   barrera1.unm.ar
+Address: 25.144.84.75
+
+si agregamos mas FQDN, lo hacemos en db.unm.ar, luego restart al proceso
+rndc.exe reload unm.ar                        // restart al DNS Server
+
+

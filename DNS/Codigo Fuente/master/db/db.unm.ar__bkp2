@@ -1,0 +1,21 @@
+$ttl	15S
+@	IN		SOA		dns.unm.ar		root.unm.ar. (
+						2022211122	;Serial number
+						3H			;Refresh Interval
+						30M			;Retrytry
+						2W			;Experation date
+						15S)		;Min TTL
+						TXT		"unm web"
+						NS		dns.unm.ar.
+dns					A		192.168.0.1
+barrera1				A		127.0.0.1
+barrera2				A		192.168.0.22
+barrera3				A		192.168.0.23
+barrera4				A		192.168.0.24
+servidorobdistribuido	A		127.0.0.1
+manipulador				A		192.168.0.25
+sensor1					A		192.168.0.26
+sensor2					A		192.168.0.27
+sensor3					A		192.168.0.28
+sensor4					A		192.168.0.29
+videomulticast          A       231.1.1.1

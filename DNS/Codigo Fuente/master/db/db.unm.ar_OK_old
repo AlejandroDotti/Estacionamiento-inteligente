@@ -1,0 +1,21 @@
+$ttl	15S
+@	IN		SOA		ns1.unm.ar		root.unm.ar. (
+						2022211122	;Serial number
+						3H			;Refresh Interval
+						30M			;Retrytry
+						2W			;Experation date
+						15S)		;Min TTL
+						TXT		"unm web"
+						NS		ns1.unm.ar.
+ns1						A		192.168.2.150
+primary					A		192.168.2.200
+secondary				A		192.168.2.201
+www						CNAME	primary
+mail					CNAME	secondary
+barrera1				A		25.144.84.75
+barrera2				A		25.144.84.71
+barrera3				A		25.144.84.72
+barrera4				A		25.144.84.73
+serverobjdist			A		25.100.23.23
+manipulador				A		25.144.84.70
+sensor					A		25.144.99.100

@@ -1,0 +1,24 @@
+Options
+{
+	directory "C:/bind/dns/etc";
+	version "UNM test";
+	//Specify wheter the zone transfer is allowed or not
+	allow-transfer{none;};
+	//Specify forwareds, if bind can't resolves the domain naem ip on it's own
+	forwarders {192.168.1.1;8.8.8.8;};
+	// Listen Ip means binds to all NIC in this PC, listen on UDP port 
+	listen-on {any;};
+		
+};
+zone "unm.ar"{
+		type master;
+		file "C:\bind\dns\etc\master\db\db.unm.ar";
+};
+key "rndc-key" {
+	algorithm hmac-md5;
+	secret "mYT5Csjdln7/HfOeHuDAoA==";
+};
+controls{
+	inet 192.168.1.40 port 953
+	allow { 192.168.1.40; } keys { "rndc-key";};
+};
